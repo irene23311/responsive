@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Craigslist — Redesign</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+  <!-- Top bar -->
+  <header class="site-header">
+    <div class="brand">
+      <span class="brand-dot"></span>
+      <a href="#" class="brand-name">craigs<span>list</span></a>
+    </div>
+
+    <!-- Primary search (always visible) -->
+    <form class="search" role="search">
+      <label class="sr-only" for="q">Search</label>
+      <input id="q" name="q" type="search" placeholder="Search listings…" />
+      <select aria-label="Category">
+        <option value="">All</option>
+        <option>For Sale</option>
+        <option>Housing</option>
+        <option>Jobs</option>
+        <option>Gigs</option>
+        <option>Services</option>
+        <option>Community</option>
+      </select>
+      <button class="btn" type="submit">Search</button>
+    </form>
+
+    <!-- Header actions (hide on small, show ≥ md) -->
+    <nav class="header-actions" aria-label="Header actions">
+      <a href="#" class="link">Post</a>
+      <a href="#" class="link">Account</a>
+      <a href="#" class="link">Saved</a>
+    </nav>
+  </header>
+
+  <!-- Main layout -->
+  <main class="layout">
+    <!-- Sidebar (hidden on small, visible ≥ md) -->
+    <aside class="sidebar" aria-label="Categories">
+      <h2 class="side-title">Browse</h2>
+      <ul class="cat-list">
+        <li><a href="#" class="cat-link is-active">All</a></li>
+        <li><a href="#" class="cat-link">For Sale</a></li>
+        <li><a href="#" class="cat-link">Free</a></li>
+        <li><a href="#" class="cat-link">Housing</a></li>
+        <li><a href="#" class="cat-link">Jobs</a></li>
+        <li><a href="#" class="cat-link">Gigs</a></li>
+        <li><a href="#" class="cat-link">Services</a></li>
+        <li><a href="#" class="cat-link">Community</a></li>
+        <li><a href="#" class="cat-link">Events</a></li>
+      </ul>
+
+      <div class="filters">
+        <h3>Filters</h3>
+        <label class="check"><input type="checkbox" /> Has image</label>
+        <label class="check"><input type="checkbox" /> Posted today</label>
+        <label class="check"><input type="checkbox" /> Nearby only</label>
+        <div class="price">
+          <label>Price</label>
+          <div class="row">
+            <input type="number" placeholder="Min" />
+            <span>–</span>
+            <input type="number" placeholder="Max" />
+          </div>
+          <button class="btn btn-small" type="button">Apply</button>
+        </div>
+      </div>
+    </aside>
+
+    <!-- Content -->
+    <section class="content">
+      <!-- Secondary filters (visible on small; collapse ≥ md) -->
+      <details class="mobile-filters">
+        <summary>Filter & Sort</summary>
+        <div class="mobile-filter-body">
+          <label class="check"><input type="checkbox" /> Has image</label>
+          <label class="check"><input type="checkbox" /> Posted today</label>
+          <label class="check"><input type="checkbox" /> Nearby only</label>
+          <div class="row">
+            <select>
+              <option>Sort: Newest</option>
+              <option>Price: Low → High</option>
+              <option>Price: High → Low</option>
+            </select>
+            <button class="btn btn-small" type="button">Apply</button>
+          </div>
+        </div>
+      </details>
+
+      <!-- Result meta -->
+      <div class="results-head">
+        <h1>Results</h1>
+        <div class="sort">
+          <label class="sr-only" for="sort">Sort by</label>
+          <select id="sort">
+            <option>Newest</option>
+            <option>Price: Low → High</option>
+            <option>Price: High → Low</option>
+          </select>
+        </div>
+      </div>
+
+      <!-- Cards grid -->
+      <div class="grid">
+        <!-- Repeatable card -->
+        <article class="card">
+          <a href="#" class="thumb" aria-label="Open listing: Mid-century chair">
+            <img src="https://picsum.photos/seed/a/640/480" alt="" />
+          </a>
+          <div class="card-body">
+            <div class="card-top">
+              <h2 class="title">Mid-century chair</h2>
+              <strong class="price">$120</strong>
+            </div>
+            <p class="meta">Williamsburg · Posted 2h ago</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="#" aria-label="Open listing: Studio in LES">
+            <img src="https://picsum.photos/seed/b/640/480" alt="" />
+          </a>
+          <div class="card-body">
+            <div class="card-top">
+              <h2 class="title">Studio in LES</h2>
+              <strong class="price">$2,150/mo</strong>
+            </div>
+            <p class="meta">Lower East Side · Posted 1d ago</p>
+          </div>
+        </article>
+
+        <article class="card">
+          <a class="thumb" href="#" aria-label="Open listing: Road bike M/L">
+            <img src="https://picsum.photos/seed/c/640/480" alt="" />
+          </a>
+          <div class="card-body">
+            <div class="card-top">
+              <h2 class="title">Road bike M/L</h2>
+              <strong class="price">$600</strong>
+            </div>
+            <p class="meta">Bushwick · Posted 3h ago</p>
+          </div>
+        </article>
+
+        <!-- Add more <article class="card">… as needed -->
+      </div>
+    </section>
+  </main>
+
+  <!-- Mobile bottom nav (only on small) -->
+  <nav class="bottom-nav" aria-label="Primary">
+    <a href="#" class="bn-item is-active">Home</a>
+    <a href="#" class="bn-item">Post</a>
+    <a href="#" class="bn-item">Saved</a>
+    <a href="#" class="bn-item">Account</a>
+  </nav>
+
+  <footer class="site-footer">
+    <p>© 2025 Craigslist Redesign · Demo</p>
+  </footer>
+
+  <!-- Accessibility helpers -->
+  <span class="sr-only" id="sr-note">End of page</span>
+</body>
+</html>
